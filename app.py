@@ -48,7 +48,7 @@ def main():
         dp.add_handler(CallbackQueryHandler(query))
 
         # process update
-        dp.process_update(update=update)
+    
 
 #   dp.add_handler(CallbackQueryHandler(query))
         return {'POST': 200}
