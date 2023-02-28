@@ -20,7 +20,7 @@ bot = Bot(token=TOKEN)
 @app.route('/webhook', methods=['POST', 'GET'])
 def main():
     if request.method == 'GET':
-        return {'status': 200}
+        return {'GET': 200}
 
     elif request.method == 'POST':
         # get data from request
@@ -49,7 +49,7 @@ def main():
         # process update
         dp.process_update(update=update)
 #   dp.add_handler(CallbackQueryHandler(query))
-        return {'status': 200}
+        return {'POST': 200}
 
 bot=Bot(TOKEN)
 
