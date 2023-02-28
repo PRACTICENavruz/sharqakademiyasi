@@ -16,7 +16,11 @@ app = Flask(__name__)
 TOKEN = os.environ['TOKEN']
 bot = Bot(token=TOKEN)
 
+@app.post("/")
+def index():
+    
 
+    return" <tr><td><a webhook='https://sharqakademiyasi.pythonanywhere.com/webhook'>Watermelon</a></td></tr>"
 @app.route('/webhook', methods=['POST', 'GET'])
 def main():
     if request.method == 'GET':
@@ -35,7 +39,7 @@ def main():
         # handlers
         dp.add_handler(CommandHandler('start',start))
         # Add handler for photo message
-        #dp.add_handler(MessageHandler(Filters.photo,photo))
+        
         dp.add_handler(MessageHandler(Filters.text("ijtimoiy tarmoqlar"),tarmoqlar))
         dp.add_handler(MessageHandler(Filters.text('Main menu'),start))
         dp.add_handler(MessageHandler(Filters.text("Biz Bilan Bog'lanish"),biz))
@@ -53,11 +57,6 @@ def main():
 #   dp.add_handler(CallbackQueryHandler(query))
         return {'POST': 200}
 
-bot=Bot(TOKEN)
-
-
-#print(bot.set_webhook('https://sharqakademiyasi.pythonanywhere.com/webhook'))
-#print(bot.delete_webhook())
-
-print(bot.get_webhook_info())
-
+if __name__ == '__main__':
+    
+    app.run()
