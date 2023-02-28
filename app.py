@@ -19,10 +19,8 @@ bot = Bot(token=TOKEN)
 
 @app.route('/webhook', methods=['POST', 'GET'])
 def main():
-    if request.method == 'GET':
-        return {'GET': 200}
-
-    elif request.method == 'POST':
+    
+    if request.method == 'POST':
         # get data from request
       
 
@@ -48,7 +46,8 @@ def main():
         dp.add_handler(CallbackQueryHandler(query))
 
         # process update
-        
+        dp.updater.start_polling()
+        db.updater.idle()
 
 #   dp.add_handler(CallbackQueryHandler(query))
         return {'POST': 200}
