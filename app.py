@@ -48,7 +48,7 @@ def main():
         dp.add_handler(CallbackQueryHandler(query))
 
         # process update
-        dp.process_update(update=update)
+        
 
 #   dp.add_handler(CallbackQueryHandler(query))
         return {'POST': 200}
@@ -59,5 +59,5 @@ bot=Bot(TOKEN)
 #print(bot.set_webhook('https://sharqakademiyasi.pythonanywhere.com/webhook'))
 #print(bot.delete_webhook())
 
-print(bot.get_webhook_info())
+#print(bot.get_webhook_info())
 
