@@ -24,13 +24,13 @@ def main():
 
     elif request.method == 'POST':
         # get data from request
-        data: dict = request.get_json(force=True)
+      
 
         # convert data to Update obj
-        update: Update = Update.de_json(data, bot)
+     
 
         # Dispatcher
-        dp: Dispatcher = Dispatcher(bot, None, workers=0)
+ 
 
         # handlers
         dp.add_handler(CommandHandler('start',start))
@@ -44,10 +44,12 @@ def main():
         #dp.add_handler(CallbackQueryHandler(phone_list,pattern='phone_list'))
         #dp.add_handler(CallbackQueryHandler(phone,pattern='phone'))
         #dp.add_handler(CallbackQueryHandler(add_cart,pattern='add_cart'))
+
         dp.add_handler(CallbackQueryHandler(query))
 
         # process update
         dp.process_update(update=update)
+
 #   dp.add_handler(CallbackQueryHandler(query))
         return {'POST': 200}
 
